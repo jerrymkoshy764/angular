@@ -9,8 +9,10 @@ export class ApiService {
   constructor(private  http:HttpClient) {}
   getTodo(){
     return this.http.get('https://jsonplaceholder.typicode.com/todos/')
-
-    
   }
+  // deleteTodo(id:any){
+  //   return this.http.delete("https://jsonplaceholder.typicode.com/todos/"+id)
+  // }
+  
 
 }

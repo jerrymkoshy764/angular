@@ -1,23 +1,27 @@
 <div class="todo">
-    <h1 class="text-center py-5 text-danger">
-        My Todo List
-    </h1>
+    <h1 class="text-center py-5 text-danger">My Todo-List</h1>
     <div class="container d-flex flex-column justify-content-center align-items-center">
-        
-        <div class="addInput my-3">
-            <input type="text" />
+   
+    <div class="container d-flex flex-column justify-content-center align-items-center">
+        <div class="addInput my-5">
+            <input class="inputAdd" type="text" [(ngModel)]="newTaskTitle" />&nbsp;
+             <button class="btn btn-primary" (click)="addNewTask()">Add Item</button> 
         </div>
-
-        <div class="box p-5">
-            <ul>
-                @for (item of todos; track item.id) {
+        <div class="box py-4">
+            <ul class="list">
+                @for( item of todos;track item.id){
                 <li class="d-flex justify-content-between">
-                    <input type="checkbox">
-                    <p>{{item.title}}</p>
-                    <i class="bi bi-trash text-danger"></i>
+                     <input type="checkbox" class="" name="select" id="" value="1" >
+                   
+                        <p [ngClass]="item.completed ? 'compl strikethrough' : 'strikethrough'">{{item.completed ? " " : ""}}{{item.title}}</p>
+                   
+                    <a data-mdb-toggle="tooltip" title="Remove" (click)="delete(item.id)"><i
+                            class="bi bi-trash text-danger"></i></a>
                 </li>
             }
+
             </ul>
          </div>
     </div>
+
 </div>
